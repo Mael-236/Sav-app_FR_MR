@@ -56,11 +56,11 @@ export class RecipeManagerPage implements OnInit {
           data: recette.resultats.map(res => res.score),
           fill: true,
           backgroundColor: 'rgba(210, 0, 255, 0.2)',
-          borderColor: 'rgb(210, 0, 255)',
-          pointBackgroundColor: 'rgb(0, 180, 0)',
+          borderColor: 'rgb(210, 0, 0)',
+          pointBackgroundColor: 'rgb(200, 210, 0)',
           pointBorderColor: 'rgb(0, 180, 0)',
           pointHoverBackgroundColor: 'rgb(255, 255, 255)',
-          pointHoverBorderColor: 'rgb(0, 180, 0)'
+          pointHoverBorderColor: 'rgb(0, 180, 0)',
         }]
       },
       options: {
