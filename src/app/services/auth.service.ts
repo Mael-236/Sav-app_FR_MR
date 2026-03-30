@@ -58,7 +58,7 @@ export class AuthService {
 
   hasRole(role: string): boolean {
     const decoded = this.getDecodedToken();
-    if (!decoded || decoded.role) return false;
+    if (!decoded || !decoded.role) return false;
     return decoded.roles.includes(role);
   }
 

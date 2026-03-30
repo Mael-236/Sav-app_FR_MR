@@ -1,1 +1,59 @@
-<p>users-manager-page works!</p>
+<div class="container mt-5">
+  <h3 class="mb-4">
+    <i class="bi bi-people-fill me-2"></i>Gestion des utilisateurs
+  </h3>
+
+  @if (errorMessage) {
+    <div class="alert alert-danger">{{ errorMessage }}</div>
+  }
+
+  @if (isLoading) {
+    <div class="text-center">
+      <span class="spinner-border text-primary"></span>
+    </div>
+  } @else {
+    <div class="table-responsive">
+      <table class="table table-striped table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Nom d'utilisateur</th>
+            <th>Email</th>
+            <th>Rôle</th>
+            <th>Banni</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (u of utilisateurs; track u.id) {
+            <tr>
+              <td>{{ u.id }}</td>
+              <td>{{ u.username }}</td>
+              <td>{{ u.email }}</td>
+              <td>
+                <span class="badge"
+                  [class.bg-danger]="u.role.nomLogic === 'ROLE_ADMIN'"
+                  [class.bg-secondary]="u.role.nomLogic !== 'ROLE_ADMIN'">
+                  {{ u.role.nom }}
+                </span>
+              </td>
+              <td>
+                <span class="badge" [class.bg-danger]="u.estBanned" [class.bg-success]="!u.estBanned">
+                  {{ u.estBanned ? 'Oui' : 'Non' }}
+                </span>
+              </td>
+              <td>
+                <button class="btn btn-sm btn-danger"
+                        (click)="deleteUtilisateur(u.id)"
+                        [disabled]="u.role.nomLogic === 'ROLE_ADMIN'"
+                        title="Supprimer l'utilisateur">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

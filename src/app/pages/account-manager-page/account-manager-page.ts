@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './account-manager-page.css',
 })
 export class AccountManagerPage {
-
 }
