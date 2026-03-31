@@ -32,8 +32,8 @@
               <td>{{ u.email }}</td>
               <td>
                 <span class="badge"
-                  [class.bg-danger]="u.role.nomLogic === 'ROLE_ADMIN'"
-                  [class.bg-secondary]="u.role.nomLogic !== 'ROLE_ADMIN'">
+                  [class.bg-danger]="u.role.nomLogic === 'ADMIN'"
+                  [class.bg-secondary]="u.role.nomLogic !== 'ADMIN'">
                   {{ u.role.nom }}
                 </span>
               </td>

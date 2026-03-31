@@ -58,8 +58,13 @@ export class AuthService {
 
   hasRole(role: string): boolean {
     const decoded = this.getDecodedToken();
-    if (!decoded || !decoded.role) return false;
-    return decoded.roles.includes(role);
+    if (!decoded) return false;
+
+    // Si ton JWT utilise "roles" (tableau) :
+    const roles: string[] = decoded.roles || decoded.role || [];
+    return Array.isArray(roles)
+      ? roles.includes(role)
+      : roles === role;
   }
 
   getUserFullInfo() {

@@ -15,7 +15,7 @@ export interface Utilisateur {
 
 @Injectable({ providedIn: 'root' })
 export class UtilisateurService {
-  private readonly API_URL = 'http://localhost:8080/utilisateurs';
+  private readonly API_URL = 'http://localhost:8080/api-savon/v1/utilisateur';
   private http = inject(HttpClient);
   private authService = inject(AuthService);
 
